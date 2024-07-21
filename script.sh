@@ -1,3 +1,24 @@
+#DSM PLEX SSL SETUP:
+
+# On windows after installing Indy SSL library at (https://indy.fulgan.com/SSL/)
+# Run openssl in Admin mode. Run command:
+
+########
+#Sample:
+#pkcs12 -export -out yourdomain.com.pfx -certpbe AES-256-CBC -keypbe AES-256-CBC -macalg SHA256 -inkey privkey.pem -in cert.pem -certfile chain.pem -name “yourdomain.com”
+########
+
+# Enter a password for the certificate
+# Now a file will be exported, the name will be ****.pfx (The name you specified above)
+# Upload this file to the Plex folder on you Synology NAS
+# Log into Plex and go to Settings -> Network -> Advanced settings
+# Enter the Path to your file in the “custom certificate” option. Then enter your password into the “custom certificate encryption key” option.
+# Enter your domain name in the “custom certificate domain”
+# Select save
+# In Package Manager, go to Plex and restart it
+
+#Automated script:
+
 #!/bin/sh
 
 # CONFIGURATION
